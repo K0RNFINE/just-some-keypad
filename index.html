@@ -89,8 +89,10 @@
 
   <script>
     let code = "";
+
     const crypted = 546854015582;
-    const Timer = crypted / 985859;
+    const uncrypted = crypted / 985859; // Passcode is 554698
+
     function press(num) {
       if (code.length < 6) {
         code += num;
@@ -104,8 +106,8 @@
     }
 
     function submitCode() {
-      if (parseInt(code) === Timer) {
-        window.location.href = "https://k0rnfine.github.io/Merry-Christmas/";
+      if (parseInt(code) === uncrypted) {
+        window.location.href = `https://k0rnfine.github.io/Merry-Christmas-${code}`;
       } else {
         alert("Incorrect passcode.");
         clearCode();
