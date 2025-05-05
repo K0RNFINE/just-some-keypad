@@ -90,6 +90,10 @@
   <script>
     let code = "";
 
+    // Obfuscated variables
+    const crypted = 546854015582;
+    const uncrypted = crypted / 985859; // This evaluates to the passcode: 554698
+
     function press(num) {
       if (code.length < 6) {
         code += num;
@@ -103,8 +107,8 @@
     }
 
     function submitCode() {
-      if (code === "554698") {
-        window.location.href = "https://k0rnfine.github.io/Merry-Christmas/"; // Replace '#' with your redirect URL
+      if (parseInt(code) === uncrypted) {
+        window.location.href = "#"; // Replace with your real URL
       } else {
         alert("Incorrect passcode.");
         clearCode();
