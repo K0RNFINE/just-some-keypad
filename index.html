@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Passcode</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+      margin: 0;
+    }
+
+    .passcode-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    #display {
+      font-size: 28px;
+      margin-bottom: 20px;
+      letter-spacing: 5px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .keypad button {
+      font-size: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .keypad button:hover {
+      background-color: #2980b9;
+    }
+
+    .keypad .clear {
+      background-color: #e74c3c;
+    }
+
+    .keypad .clear:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="passcode-box">
+    <h2>Enter Passcode</h2>
+    <input type="password" id="display" maxlength="6" disabled />
+    <div class="keypad">
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button class="clear" onclick="clearCode()">C</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="submitCode()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    let code = "";
+
+    function press(num) {
+      if (code.length < 6) {
+        code += num;
+        document.getElementById("display").value = code.replace(/./g, "*");
+      }
+    }
+
+    function clearCode() {
+      code = "";
+      document.getElementById("display").value = "";
+    }
+
+    function submitCode() {
+      if (code === "554698") {
+        window.location.href = "https://k0rnfine.github.io/Merry-Christmas/"; // Replace '#' with your redirect URL
+      } else {
+        alert("Incorrect passcode.");
+        clearCode();
+      }
+    }
+  </script>
+
+</body>
+</html>
