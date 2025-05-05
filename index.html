@@ -89,11 +89,8 @@
 
   <script>
     let code = "";
-
-    // Obfuscated variables
     const crypted = 546854015582;
-    const uncrypted = crypted / 985859; // This evaluates to the passcode: 554698
-
+    const Timer = crypted / 985859;
     function press(num) {
       if (code.length < 6) {
         code += num;
@@ -107,7 +104,7 @@
     }
 
     function submitCode() {
-      if (parseInt(code) === uncrypted) {
+      if (parseInt(code) === Timer) {
         window.location.href = "#"; // Replace with your real URL
       } else {
         alert("Incorrect passcode.");
