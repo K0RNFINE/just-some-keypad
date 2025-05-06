@@ -85,13 +85,16 @@
       <button onclick="press('0')">0</button>
       <button onclick="submitCode()">OK</button>
     </div>
-  <!-- Secret Code :) [ tHiS iS VeRY eAsY ] -->
   </div>
 
   <script>
     let code = "";
-    const crypted = 546854015582;
-    const uncrypted = crypted / 985859;
+
+    const encrypted = 546854015582;
+    const encrypted1 = 443312202389;
+    const uncrypted = encrypted / 985859;
+    const uncrypted1 = encrypted1 / 985859;
+
     function press(num) {
       if (code.length < 6) {
         code += num;
@@ -105,8 +108,12 @@
     }
 
     function submitCode() {
-      if (parseInt(code) === uncrypted) {
+      const inputCode = parseInt(code);
+
+      if (inputCode === uncrypted) {
         window.location.href = `https://k0rnfine.github.io/Merry-Christmas-${code}`;
+      } else if (inputCode === uncrypted1) {
+        window.location.href = `https://www.youtube.com/watch?v=dQw4w9WgXcQ`;
       } else {
         alert("Incorrect passcode.");
         clearCode();
